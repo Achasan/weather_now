@@ -1,0 +1,47 @@
+.weatherCard {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 95%;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  margin: 20px auto 0 auto;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 6%);
+}
+
+.weatherCard .current-image {
+  line-height: 150px;
+  width: 200px;
+  height: 200px;
+  background-image: url("https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt1.svg");
+  background-size: cover;
+}
+
+.weatherCard .text-block {
+  width: 120px;
+  margin-left: 70%;
+  box-sizing: border-box;
+}
+
+.weatherCard .current-image .temperature {
+  font-size: 4em;
+}
+
+.weatherCard .current-image .sky-status {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.weatherCard .current-table {
+  font-size: 0.8em;
+}
+
+.current-table tr td {
+  padding: 0 7px;
+}
+
+.current-table tr td dl dd {
+  margin: 0;
+}
