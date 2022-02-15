@@ -1,5 +1,5 @@
 import "./App.css";
-import axios from "axios";
+
 import Nav from "./components/Navbar/nav";
 import WeatherCard from "./components/Card/Large/weatherCard";
 import "./components/Navbar/nav.css";
@@ -16,18 +16,5 @@ function App() {
     </div>
   );
 }
-
-function loadForecast() {
-  axios
-    .get("api/UltraSrtNcst")
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch(() => {
-      console.log("api load failed");
-    });
-}
-
-window.addEventListener("load", loadForecast);
 
 export default App;

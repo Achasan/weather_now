@@ -12,30 +12,32 @@
 }
 
 .weatherCard .current-image {
-  line-height: 150px;
   width: 200px;
   height: 200px;
   background-image: url("https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt1.svg");
   background-size: cover;
+  margin-right: 10%;
 }
 
 .weatherCard .text-block {
-  width: 120px;
+  width: 100px;
+  padding-top: 45px;
   margin-left: 70%;
   box-sizing: border-box;
 }
 
 .weatherCard .current-image .temperature {
   font-size: 4em;
+  letter-spacing: -4px;
 }
 
 .weatherCard .current-image .sky-status {
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
 .weatherCard .current-table {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .current-table tr td {
