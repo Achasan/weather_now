@@ -46,4 +46,11 @@
 
 .current-table tr td dl dd {
   margin: 0;
+  font-weight: 700;
+}
+
+.current-table .fcstVersion {
+  text-align: right;
+  font-size: 0.8em;
+  color: #999999;
 }

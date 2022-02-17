@@ -13,6 +13,13 @@ import axios from "axios";
   WSD: "풍속",
 */
 
+/*
+  단기예보 SKY 코드
+  1: 맑음
+  2: 구름많음
+  3: 흐림
+*/
+
 function WeatherCard() {
   let [fcstData, fcstDataModify] = useState({
     T1H: "-",
@@ -24,10 +31,20 @@ function WeatherCard() {
     PTY: "-",
     VEC: "-",
     WSD: "-",
+    ODAM: "-",
   });
 
-  useEffect(async () => {
-    await axios.get("api/UltraSrtNcst").then((res) => fcstDataModify(res.data));
+  useEffect(() => {
+    axios.get("api/weather").then((res) => {
+      console.log(res.data);
+      let odam = res.data.ncst["ODAM"];
+      odam = `${odam.substring(4, 6)}.${odam.substring(6, 8)} ${odam.substring(
+        8,
+        10
+      )}:${odam.substring(10, 12)}`;
+      res.data.ncst["ODAM"] = odam;
+      fcstDataModify(res.data.ncst);
+    });
   }, []);
 
   return (
@@ -92,6 +109,11 @@ function WeatherCard() {
                 <dt>풍속</dt>
                 <dd>{fcstData["WSD"]}</dd>
               </dl>
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="4" className="fcstVersion">
+              {fcstData["ODAM"] + "기준"}
             </td>
           </tr>
         </tbody>
