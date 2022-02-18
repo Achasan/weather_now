@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ResponsiveLine } from "@nivo/line";
+import { connect } from "react-redux";
 import axios from "axios";
 
 /*
@@ -20,7 +22,7 @@ import axios from "axios";
   3: 흐림
 */
 
-function WeatherCard() {
+function WeatherCard(props) {
   let [fcstData, fcstDataModify] = useState({
     T1H: "-",
     RN1: "-",
@@ -35,17 +37,18 @@ function WeatherCard() {
   });
 
   useEffect(() => {
-    axios.get("api/weather").then((res) => {
-      console.log(res.data);
-      let odam = res.data.ncst["ODAM"];
-      odam = `${odam.substring(4, 6)}.${odam.substring(6, 8)} ${odam.substring(
-        8,
-        10
-      )}:${odam.substring(10, 12)}`;
-      res.data.ncst["ODAM"] = odam;
-      fcstDataModify(res.data.ncst);
-    });
+    console.log(props.response.ncst);
+    let ncst = props.response.ncst;
+    let odam = ncst["ODAM"];
+    odam = `${odam.substring(4, 6)}.${odam.substring(6, 8)} ${odam.substring(
+      8,
+      10
+    )}:${odam.substring(10, 12)}`;
+    ncst["ODAM"] = odam;
+    fcstDataModify(ncst);
   }, []);
+
+  console.log(props.response);
 
   return (
     <div className="weatherCard">
@@ -122,4 +125,5 @@ function WeatherCard() {
   );
 }
 
-export default WeatherCard;
+export { WeatherCard };
+// export default connect(stateToProps)(WeatherCard);

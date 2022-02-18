@@ -54,3 +54,7 @@
   font-size: 0.8em;
   color: #999999;
 }
+
+.card-chart {
+  height: 500px;
+}
