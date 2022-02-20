@@ -1,24 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const temp = {
-  T1H: "-",
-  RN1: "-",
-  SKY: "-",
-  UUU: "-",
-  VVV: "-",
-  REH: "-",
-  PTY: "-",
-  VEC: "-",
-  WSD: "-",
-  ODAM: "-",
-};
-
 function WeatherNow(props) {
   return (
     <div className="weatherCard">
       <div className="current-image">
         <div className="text-block">
-          <span className="temperature">{props.ncst["T1H"]}</span>
+          <strong className="temperature">{props.ncst["T1H"]}</strong>
           <span className="sky-status">{props.ncst["SKY"]}</span>
         </div>
       </div>
@@ -28,14 +15,14 @@ function WeatherNow(props) {
           <tr>
             <td>
               <dl>
-                <dt>강수형태</dt>
-                <dd>{props.ncst["PTY"]}</dd>
+                <dt>기온</dt>
+                <dd>{props.ncst["T1H"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
-                <dt>습도</dt>
-                <dd>{props.ncst["REH"]}</dd>
+                <dt>강수형태</dt>
+                <dd>{props.ncst["PTY"]}</dd>
               </dl>
             </td>
             <td>
@@ -46,25 +33,13 @@ function WeatherNow(props) {
             </td>
             <td>
               <dl>
-                <dt>기온</dt>
-                <dd>{props.ncst["T1H"]}</dd>
+                <dt>습도</dt>
+                <dd>{props.ncst["REH"]}</dd>
               </dl>
             </td>
           </tr>
 
           <tr>
-            <td>
-              <dl>
-                <dt>풍속(동서)</dt>
-                <dd>{props.ncst["UUU"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>풍속(남북)</dt>
-                <dd>{props.ncst["VVV"]}</dd>
-              </dl>
-            </td>
             <td>
               <dl>
                 <dt>풍향</dt>
@@ -75,6 +50,18 @@ function WeatherNow(props) {
               <dl>
                 <dt>풍속</dt>
                 <dd>{props.ncst["WSD"]}</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>풍속(동서)</dt>
+                <dd>{props.ncst["UUU"]}</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>풍속(남북)</dt>
+                <dd>{props.ncst["VVV"]}</dd>
               </dl>
             </td>
           </tr>
@@ -90,6 +77,10 @@ function WeatherNow(props) {
 }
 
 function ODAMConvert(odam) {
+  if (odam === undefined) {
+    return "-";
+  }
+
   return `${odam.substring(4, 6)}.${odam.substring(6, 8)} ${odam.substring(
     8,
     10

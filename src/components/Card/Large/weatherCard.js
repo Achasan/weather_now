@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import WeatherNow from "../Medium/weatherNow.js";
-import { connect } from "react-redux";
 import axios from "axios";
 
 /*
@@ -22,8 +21,21 @@ import axios from "axios";
   3: 흐림
 */
 
+const temp = {
+  T1H: "-",
+  RN1: "-",
+  SKY: "-",
+  UUU: "-",
+  VVV: "-",
+  REH: "-",
+  PTY: "-",
+  VEC: "-",
+  WSD: "-",
+  ODAM: "-",
+};
+
 function WeatherCard() {
-  let [ncst, setNcst] = useState([]);
+  let [ncst, setNcst] = useState(temp);
   let [vilageTmp, setVilageTmp] = useState([]);
   let [vilageSky, setVilageSky] = useState([]);
 
