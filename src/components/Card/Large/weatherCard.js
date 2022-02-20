@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ResponsiveLine } from "@nivo/line";
+import WeatherNow from "../Medium/weatherNow.js";
 import { connect } from "react-redux";
 import axios from "axios";
 
@@ -22,108 +22,25 @@ import axios from "axios";
   3: 흐림
 */
 
-function WeatherCard(props) {
-  let [fcstData, fcstDataModify] = useState({
-    T1H: "-",
-    RN1: "-",
-    SKY: "-",
-    UUU: "-",
-    VVV: "-",
-    REH: "-",
-    PTY: "-",
-    VEC: "-",
-    WSD: "-",
-    ODAM: "-",
-  });
+function WeatherCard() {
+  let [ncst, setNcst] = useState([]);
+  let [vilageTmp, setVilageTmp] = useState([]);
+  let [vilageSky, setVilageSky] = useState([]);
 
   useEffect(() => {
-    console.log(props.response.ncst);
-    let ncst = props.response.ncst;
-    let odam = ncst["ODAM"];
-    odam = `${odam.substring(4, 6)}.${odam.substring(6, 8)} ${odam.substring(
-      8,
-      10
-    )}:${odam.substring(10, 12)}`;
-    ncst["ODAM"] = odam;
-    fcstDataModify(ncst);
+    axios
+      .get("api/weather")
+      .then((res) => {
+        console.log(res.data);
+
+        setNcst(res.data.ncst);
+        setVilageTmp(res.data.vilageTmp);
+        setVilageSky(res.data.vilageSky);
+      })
+      .catch("server error");
   }, []);
 
-  console.log(props.response);
-
-  return (
-    <div className="weatherCard">
-      <div className="current-image">
-        <div className="text-block">
-          <span className="temperature">{fcstData["T1H"]}</span>
-          <span className="sky-status">{fcstData["SKY"]}</span>
-        </div>
-      </div>
-
-      <table className="current-table">
-        <tbody>
-          <tr>
-            <td>
-              <dl>
-                <dt>강수형태</dt>
-                <dd>{fcstData["PTY"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>습도</dt>
-                <dd>{fcstData["REH"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>1시간 강수량</dt>
-                <dd>{fcstData["RN1"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>기온</dt>
-                <dd>{fcstData["T1H"]}</dd>
-              </dl>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <dl>
-                <dt>풍속(동서)</dt>
-                <dd>{fcstData["UUU"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>풍속(남북)</dt>
-                <dd>{fcstData["VVV"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>풍향</dt>
-                <dd>{fcstData["VEC"]}</dd>
-              </dl>
-            </td>
-            <td>
-              <dl>
-                <dt>풍속</dt>
-                <dd>{fcstData["WSD"]}</dd>
-              </dl>
-            </td>
-          </tr>
-          <tr>
-            <td colSpan="4" className="fcstVersion">
-              {fcstData["ODAM"] + "기준"}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
+  return <WeatherNow ncst={ncst} />;
 }
 
-export { WeatherCard };
-// export default connect(stateToProps)(WeatherCard);
+export default WeatherCard;
