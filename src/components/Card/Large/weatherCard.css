@@ -11,10 +11,14 @@
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 6%);
 }
 
+.weatherCard.vilage {
+  display: block;
+}
+
 .weatherCard .current-image {
   width: 200px;
   height: 200px;
-  background-image: url("https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt1.svg");
+  background-image: url("/src/assets/icon/sunny.svg");
   background-size: cover;
   margin-right: 10%;
 }
@@ -27,6 +31,7 @@
 }
 
 .weatherCard .current-image .temperature {
+  display: block;
   font-size: 4em;
   letter-spacing: -4px;
 }

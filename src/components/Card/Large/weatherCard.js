@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeatherNow from "../Medium/weatherNow.js";
 import axios from "axios";
+import VilageTem from "../Medium/vilageTem.js";
 
 /*
   T1H: "기온",
@@ -52,7 +53,12 @@ function WeatherCard() {
       .catch("server error");
   }, []);
 
-  return <WeatherNow ncst={ncst} />;
+  return (
+    <div className="weather-cards">
+      <WeatherNow ncst={ncst} />
+      <VilageTem />
+    </div>
+  );
 }
 
 export default WeatherCard;

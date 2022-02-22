@@ -1,0 +1,19 @@
+.weatherCard.vilage .title {
+  text-align: left;
+  font-size: 1.2em;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.weatherCard.vilage .tmp-list {
+  margin: 0 20px;
+}
+
+.weatherCard.vilage .tmp-list .vilage-tem-unit {
+  width: 70px;
+  height: 100%;
+}
+
+.tmp-list .vilage-tem-unit .time {
+}
