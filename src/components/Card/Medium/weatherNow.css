@@ -1,0 +1,35 @@
+.current-image.sunny {
+  background-image: url("/public/weather/sunny.svg");
+}
+
+.current-image.cloud {
+  background-image: url("/public/weather/cloud.svg");
+}
+
+.current-image.cloud-strong {
+  background-image: url("/public/weather/cloud_strong.svg");
+}
+
+.current-image.rain {
+  background-image: url("/public/weather/rain.svg");
+}
+
+.current-image.rain-snow {
+  background-image: url("/public/weather/snow_little.svg");
+}
+
+.current-image.snow {
+  background-image: url("/public/weather/snow_little.svg");
+}
+
+.current-image.shower {
+  background-image: url("/public/weather/rain.svg");
+}
+
+.current-image.raindrop {
+  background-image: url("/public/weather/raindrop.svg");
+}
+
+.current-image.snow-weak {
+  background-image: url("/public/weather/snow_little.svg");
+}

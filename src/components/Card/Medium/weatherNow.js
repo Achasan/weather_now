@@ -6,11 +6,11 @@ function WeatherNow(props) {
     props.ncst["PTY"] === "없음"
       ? weatherIconInit(props.ncst["SKY"])
       : weatherIconInit(props.ncst["PTY"]);
-  });
+  }, [props.ncst["PTY"]]);
 
   return (
     <div className="weatherCard">
-      <div className="current-image">
+      <div className="current-image sunny">
         <div className="text-block">
           <strong className="temperature">{props.ncst["T1H"]}</strong>
           <span className="sky-status">
@@ -88,26 +88,23 @@ function WeatherNow(props) {
 }
 
 const weatherIcon = {
-  맑음: "./src/assets/icon/sunny.svg",
-  구름많음: "./src/assets/icon/sunny.svg",
-  흐림: "/src/assets/icon/cloud_black.svg",
-  비: "/src/assets/icon/rain.svg",
-  "비/눈": "/src/assets/icon/rain_snow.svg",
-  눈: "/src/assets/icon/snow.svg",
-  소나기: "/src/assets/icon/shower.svg",
-  빗방울: "/src/assets/icon/raindrop.svg",
-  빗방울눈날림: "/src/assets/icon/snow_little.svg",
-  눈날림: "/src/assets/icon/rain_snow.svg",
+  맑음: "current-image sunny",
+  구름많음: "current-image cloud",
+  흐림: "current-image cloud-strong",
+  비: "current-image rain",
+  "비/눈": "current-image rain-snow",
+  눈: "current-image snow",
+  소나기: "current-image shower",
+  빗방울: "current-image raindrop",
+  빗방울눈날림: "current-image snow-little",
+  눈날림: "current-image snow-little",
 };
 
 function weatherIconInit(directory) {
-  const currentImage = document.querySelector(".current-image");
-  console.log(currentImage);
+  const parent = document.querySelector(".weatherCard");
 
-  currentImage.style.backgroundImage = `url('${weatherIcon[directory]}')`;
+  parent.children[0].className = weatherIcon[directory];
 }
-
-//src={`${process.env.PUBLIC_URL}/cloud_black.svg`}
 
 function ODAMConvert(odam) {
   if (odam === undefined) {

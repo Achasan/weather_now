@@ -18,7 +18,6 @@
 .weatherCard .current-image {
   width: 200px;
   height: 200px;
-  background-image: url("/src/assets/icon/sunny.svg");
   background-size: cover;
   margin-right: 10%;
 }
