@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import WeatherNow from "../Medium/weatherNow.js";
+import { WeatherNow } from "../Medium/weatherNow.js";
 import axios from "axios";
 import VilageTem from "../Medium/vilageTem.js";
 
@@ -37,8 +37,7 @@ const temp = {
 
 function WeatherCard() {
   let [ncst, setNcst] = useState(temp);
-  let [vilageTmp, setVilageTmp] = useState([]);
-  let [vilageSky, setVilageSky] = useState([]);
+  let [vilage, setVilage] = useState([]);
 
   useEffect(() => {
     axios
@@ -47,8 +46,7 @@ function WeatherCard() {
         console.log(res.data);
 
         setNcst(res.data.ncst);
-        setVilageTmp(res.data.vilageTmp);
-        setVilageSky(res.data.vilageSky);
+        setVilage(res.data.vilage);
       })
       .catch("server error");
   }, []);
@@ -56,7 +54,7 @@ function WeatherCard() {
   return (
     <div className="weather-cards">
       <WeatherNow ncst={ncst} />
-      <VilageTem />
+      <VilageTem vilage={vilage} />
     </div>
   );
 }

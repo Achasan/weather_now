@@ -1,20 +1,42 @@
-function TemUnit() {
+function TemUnit(props) {
   return (
     <div className="vilage-tem-unit">
       <div className="time">
-        <span>오후 1시</span>
+        <span className="tiny">{`${props.data.fcstTime.substring(
+          4,
+          6
+        )}:00`}</span>
       </div>
-      <div className="weather-icon">
-        <span>눈</span>
-      </div>
+      {props.data.pty === "없음"
+        ? weatherIconInit_unit(props.data.sky)
+        : weatherIconInit_unit(props.data.pty)}
       <div className="vilage-tem">
-        <span>3도</span>
+        <strong>{props.data.tmp}</strong>
       </div>
       <div className="precipitation">
-        <span>강수확률</span>
+        <span className="tiny">{"☔" + props.data.pop}</span>
       </div>
     </div>
   );
+}
+
+const weatherIconSmall = {
+  맑음: "current-image small sunny",
+  구름많음: "current-image small cloud",
+  흐림: "current-image small cloud-strong",
+  비: "current-image small rain",
+  "비/눈": "current-image small rain-snow",
+  눈: "current-image small snow",
+  소나기: "current-image small shower",
+  빗방울: "current-image small raindrop",
+  빗방울눈날림: "current-image small snow-little",
+  눈날림: "current-image small snow-little",
+};
+
+function weatherIconInit_unit(directory) {
+  const className = weatherIconSmall[directory];
+
+  return <div className={className}></div>;
 }
 
 export default TemUnit;

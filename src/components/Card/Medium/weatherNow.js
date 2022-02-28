@@ -117,4 +117,4 @@ function ODAMConvert(odam) {
   )}:${odam.substring(10, 12)}`;
 }
 
-export default WeatherNow;
+export { WeatherNow, weatherIcon, weatherIconInit };

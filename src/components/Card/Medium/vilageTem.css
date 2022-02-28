@@ -7,14 +7,21 @@
 }
 
 .weatherCard.vilage .tmp-list {
+  display: flex;
+  height: 150px;
   margin: 0 20px;
 }
 
 .weatherCard.vilage .tmp-list .vilage-tem-unit {
-  width: 70px;
-  height: 100%;
+  width: 90px;
+  height: 130px;
+  padding: 0 10px;
 }
 
-.tmp-list .vilage-tem-unit .time {
-  margin-bottom: 10px;
+.tmp-list .vilage-tem-unit .precipitation {
+  padding-top: 5px;
+}
+
+.tmp-list .vilage-tem-unit .tiny {
+  font-size: 0.8em;
 }
