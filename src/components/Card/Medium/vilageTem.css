@@ -10,6 +10,12 @@
   display: flex;
   height: 150px;
   margin: 0 20px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+}
+
+.weatherCard.vilage .tmp-list::-webkit-scrollbar {
+  display: none;
 }
 
 .weatherCard.vilage .tmp-list .vilage-tem-unit {

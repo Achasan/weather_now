@@ -8,8 +8,8 @@ function TemUnit(props) {
         )}:00`}</span>
       </div>
       {props.data.pty === "없음"
-        ? weatherIconInit_unit(props.data.sky)
-        : weatherIconInit_unit(props.data.pty)}
+        ? weatherIconInit(props.data.sky)
+        : weatherIconInit(props.data.pty)}
       <div className="vilage-tem">
         <strong>{props.data.tmp}</strong>
       </div>
@@ -33,8 +33,8 @@ const weatherIconSmall = {
   눈날림: "current-image small snow-little",
 };
 
-function weatherIconInit_unit(directory) {
-  const className = weatherIconSmall[directory];
+function weatherIconInit(fcstValue) {
+  const className = weatherIconSmall[fcstValue];
 
   return <div className={className}></div>;
 }

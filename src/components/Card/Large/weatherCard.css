@@ -13,6 +13,7 @@
 
 .weatherCard.vilage {
   display: block;
+  position: relative;
 }
 
 .weatherCard .current-image {

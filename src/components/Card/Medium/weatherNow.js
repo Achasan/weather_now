@@ -3,20 +3,20 @@ import "../Large/weatherCard.css";
 
 function WeatherNow(props) {
   useEffect(() => {
-    props.ncst["PTY"] === "없음"
-      ? weatherIconInit(props.ncst["SKY"])
-      : weatherIconInit(props.ncst["PTY"]);
-  }, [props.ncst["PTY"]]);
+    props.live["pty"] === "없음"
+      ? weatherIconInit(props.live["sky"])
+      : weatherIconInit(props.live["pty"]);
+  }, [props.live["pty"]]);
 
   return (
     <div className="weatherCard">
       <div className="current-image sunny">
         <div className="text-block">
-          <strong className="temperature">{props.ncst["T1H"]}</strong>
+          <strong className="temperature">{props.live["t1H"]}</strong>
           <span className="sky-status">
-            {props.ncst["PTY"] === "없음"
-              ? props.ncst["SKY"]
-              : props.ncst["PTY"]}
+            {props.live["pty"] === "없음"
+              ? props.live["sky"]
+              : props.live["pty"]}
           </span>
         </div>
       </div>
@@ -27,25 +27,25 @@ function WeatherNow(props) {
             <td>
               <dl>
                 <dt>기온</dt>
-                <dd>{props.ncst["T1H"]}</dd>
+                <dd>{props.live["t1H"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>강수형태</dt>
-                <dd>{props.ncst["PTY"]}</dd>
+                <dd>{props.live["pty"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>1시간 강수량</dt>
-                <dd>{props.ncst["RN1"]}</dd>
+                <dd>{props.live["rn1"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>습도</dt>
-                <dd>{props.ncst["REH"]}</dd>
+                <dd>{props.live["reh"]}</dd>
               </dl>
             </td>
           </tr>
@@ -54,31 +54,31 @@ function WeatherNow(props) {
             <td>
               <dl>
                 <dt>풍향</dt>
-                <dd>{props.ncst["VEC"]}</dd>
+                <dd>{props.live["vec"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>풍속</dt>
-                <dd>{props.ncst["WSD"]}</dd>
+                <dd>{props.live["wsd"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>풍속(동서)</dt>
-                <dd>{props.ncst["UUU"]}</dd>
+                <dd>{props.live["uuu"]}</dd>
               </dl>
             </td>
             <td>
               <dl>
                 <dt>풍속(남북)</dt>
-                <dd>{props.ncst["VVV"]}</dd>
+                <dd>{props.live["vvv"]}</dd>
               </dl>
             </td>
           </tr>
           <tr>
             <td colSpan="4" className="fcstVersion">
-              {ODAMConvert(props.ncst["ODAM"]) + "기준"}
+              {ODAMConvert(props.live["odam"]) + "기준"}
             </td>
           </tr>
         </tbody>
@@ -100,10 +100,10 @@ const weatherIcon = {
   눈날림: "current-image snow-little",
 };
 
-function weatherIconInit(directory) {
+function weatherIconInit(fcstValue) {
   const parent = document.querySelector(".weatherCard");
 
-  parent.children[0].className = weatherIcon[directory];
+  parent.children[0].className = weatherIcon[fcstValue];
 }
 
 function ODAMConvert(odam) {

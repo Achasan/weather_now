@@ -36,7 +36,7 @@ const temp = {
 };
 
 function WeatherCard() {
-  let [ncst, setNcst] = useState(temp);
+  let [live, setLive] = useState(temp);
   let [vilage, setVilage] = useState([]);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function WeatherCard() {
       .then((res) => {
         console.log(res.data);
 
-        setNcst(res.data.ncst);
+        setLive(res.data.live);
         setVilage(res.data.vilage);
       })
       .catch("server error");
@@ -53,7 +53,7 @@ function WeatherCard() {
 
   return (
     <div className="weather-cards">
-      <WeatherNow ncst={ncst} />
+      <WeatherNow live={live} />
       <VilageTem vilage={vilage} />
     </div>
   );
