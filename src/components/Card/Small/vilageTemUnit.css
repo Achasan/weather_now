@@ -1,0 +1,34 @@
+.weatherCard.vilage .tmp-list .vilage-tem-unit {
+  width: 90px;
+  height: 135px;
+  padding: 0 10px;
+}
+
+.weatherCard .current-image.small {
+  width: 50px;
+  height: 45px;
+  padding: 3px 0;
+  margin: initial;
+}
+
+.weatherCard.vilage .tmp-list .vilage-tem-unit.midnight {
+  border-left: 1px solid #999;
+}
+
+.tmp-list .vilage-tem-unit .precipitation {
+  padding-top: 3px;
+}
+
+.tmp-list .vilage-tem-unit .date {
+  width: 35px;
+  border: 1px solid #5691f9;
+  border-radius: 15px;
+  font-size: 0.8em;
+  color: #5691f9;
+  padding: 1px 3px;
+  margin: 5px auto;
+}
+
+.tmp-list .vilage-tem-unit .tiny {
+  font-size: 0.8em;
+}

@@ -1,11 +1,15 @@
 function TemUnit(props) {
+  const isMidnight =
+    props.data.fcstTime.substring(4, 8) === "0000" ? true : false;
+
+  const fcstTime = props.data.fcstTime;
+
   return (
-    <div className="vilage-tem-unit">
+    <div
+      className={isMidnight ? "vilage-tem-unit midnight" : "vilage-tem-unit"}
+    >
       <div className="time">
-        <span className="tiny">{`${props.data.fcstTime.substring(
-          4,
-          6
-        )}:00`}</span>
+        <span className="tiny">{`${fcstTime.substring(4, 6)}:00`}</span>
       </div>
       {props.data.pty === "없음"
         ? weatherIconInit(props.data.sky)
@@ -16,6 +20,13 @@ function TemUnit(props) {
       <div className="precipitation">
         <span className="tiny">{"☔" + props.data.pop}</span>
       </div>
+      {isMidnight ? (
+        <div className="date">
+          <strong className="tiny">
+            {fcstTime.substring(0, 2)}/{fcstTime.substring(2, 4)}
+          </strong>
+        </div>
+      ) : null}
     </div>
   );
 }

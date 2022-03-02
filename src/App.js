@@ -5,6 +5,7 @@ import WeatherCard from "./components/Card/Large/weatherCard.js";
 import "./components/Navbar/nav.css";
 import "./components/Card/Large/weatherCard.css";
 import "./components/Card/Medium/weatherNow.css";
+import "./components/Card/Small/vilageTemUnit.css";
 
 function App() {
   return (

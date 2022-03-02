@@ -24,13 +24,6 @@
   margin-right: 10%;
 }
 
-.weatherCard .current-image.small {
-  width: 50px;
-  height: 50px;
-  padding: 5px 0;
-  margin: initial;
-}
-
 .weatherCard .text-block {
   width: 100px;
   padding-top: 45px;

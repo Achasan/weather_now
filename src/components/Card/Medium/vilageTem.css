@@ -17,17 +17,3 @@
 .weatherCard.vilage .tmp-list::-webkit-scrollbar {
   display: none;
 }
-
-.weatherCard.vilage .tmp-list .vilage-tem-unit {
-  width: 90px;
-  height: 130px;
-  padding: 0 10px;
-}
-
-.tmp-list .vilage-tem-unit .precipitation {
-  padding-top: 5px;
-}
-
-.tmp-list .vilage-tem-unit .tiny {
-  font-size: 0.8em;
-}
