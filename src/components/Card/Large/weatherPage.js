@@ -53,7 +53,7 @@ function WeatherPage() {
   }, []);
 
   return (
-    <div className="weather-cards">
+    <div className="container">
       <LiveFcst live={live} />
       <PerHourFcst vilage={vilage} />
       <MidFcst />

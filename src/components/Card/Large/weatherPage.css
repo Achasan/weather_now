@@ -12,12 +12,17 @@
 }
 
 .weatherCard.large {
-  height: 500px;
-}
-
-.weatherCard.vilage {
   display: block;
   position: relative;
+  height: 400px;
+}
+
+.weatherCard .title {
+  text-align: left;
+  font-size: 1.2em;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .weatherCard .current-image {

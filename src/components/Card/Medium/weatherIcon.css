@@ -2,12 +2,24 @@
   background-image: url("/public/weather/sunny.svg");
 }
 
+.current-image.sunny-night {
+  background-image: url("/public/weather/sunny_night.svg");
+}
+
 .current-image.cloud {
   background-image: url("/public/weather/cloud.svg");
 }
 
+.current-image.cloud-night {
+  background-image: url("/public/weather/cloud_night.svg");
+}
+
 .current-image.cloud-strong {
   background-image: url("/public/weather/cloud_strong.svg");
+}
+
+.current-image.cloud-strong-night {
+  background-image: url("/public/weather/cloud_strong_night.svg");
 }
 
 .current-image.rain {

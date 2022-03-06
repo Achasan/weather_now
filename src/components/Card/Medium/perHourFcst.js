@@ -1,6 +1,6 @@
-import TemUnit from "../Small/perHourFcstUnit.js";
 import "../Medium/perHourFcst.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import PerHourFcstUnit from "../Small/perHourFcstUnit.js";
 
 function PerHourFcst(props) {
   const array = props.vilage;
@@ -39,7 +39,7 @@ function PerHourFcst(props) {
         <strong>시간 별 날씨</strong>
       </div>
       <div
-        className="tmp-list"
+        className="vilage-list"
         onMouseDown={onDragStart}
         onMouseMove={isDrag ? onDragMove : null}
         onMouseUp={onDragEnd}
@@ -47,7 +47,7 @@ function PerHourFcst(props) {
         ref={scrollRef}
       >
         {array.map((data) => {
-          return <TemUnit key={data.fcstTime} data={data} />;
+          return <PerHourFcstUnit key={data.fcstTime} data={data} />;
         })}
       </div>
     </div>

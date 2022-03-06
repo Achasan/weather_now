@@ -1,4 +1,4 @@
-.weatherCard.vilage .tmp-list .vilage-tem-unit {
+.weatherCard.vilage .vilage-list .vilage-unit {
   width: 90px;
   height: 135px;
   padding: 0 10px;
@@ -11,15 +11,15 @@
   margin: initial;
 }
 
-.weatherCard.vilage .tmp-list .vilage-tem-unit.midnight {
+.weatherCard.vilage .vilage-list .vilage-unit.midnight {
   border-left: 1px solid #999;
 }
 
-.tmp-list .vilage-tem-unit .precipitation {
+.vilage-list .vilage-unit .precipitation {
   padding-top: 3px;
 }
 
-.tmp-list .vilage-tem-unit .date {
+.vilage-list .vilage-unit .date {
   width: 35px;
   border: 1px solid #5691f9;
   border-radius: 15px;
@@ -29,6 +29,6 @@
   margin: 5px auto;
 }
 
-.tmp-list .vilage-tem-unit .tiny {
+.vilage-list .vilage-unit .tiny {
   font-size: 0.8em;
 }

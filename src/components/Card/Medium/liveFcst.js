@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "../Large/weatherPage.css";
 
 function LiveFcst(props) {
-  useEffect(() => {
-    props.live["pty"] === "없음"
-      ? weatherIconInit(props.live["sky"])
-      : weatherIconInit(props.live["pty"]);
-  }, [props.live["pty"]]);
-
   return (
     <div className="weatherCard">
-      <div className="current-image sunny">
+      <div
+        className={
+          "current-image " +
+          weatherIconInit(
+            props.live["pty"] === "없음" ? props.live["sky"] : props.live["pty"]
+          )
+        }
+      >
         <div className="text-block">
           <strong className="temperature">{props.live["t1H"]}</strong>
           <span className="sky-status">
@@ -87,23 +88,33 @@ function LiveFcst(props) {
   );
 }
 
-const weatherIcon = {
-  맑음: "current-image sunny",
-  구름많음: "current-image cloud",
-  흐림: "current-image cloud-strong",
-  비: "current-image rain",
-  "비/눈": "current-image rain-snow",
-  눈: "current-image snow",
-  소나기: "current-image shower",
-  빗방울: "current-image raindrop",
-  빗방울눈날림: "current-image snow-little",
-  눈날림: "current-image snow-little",
-};
-
 function weatherIconInit(fcstValue) {
-  const parent = document.querySelector(".weatherCard");
+  const icons = {
+    맑음: "sunny",
+    구름많음: "cloud",
+    흐림: "cloud-strong",
+    비: "rain",
+    "비/눈": "rain-snow",
+    눈: "snow",
+    소나기: "shower",
+    빗방울: "raindrop",
+    빗방울눈날림: "snow-little",
+    눈날림: "snow-little",
+  };
 
-  parent.children[0].className = weatherIcon[fcstValue];
+  const nightIcons = {
+    맑음: "sunny-night",
+    구름많음: "cloud-night",
+    흐림: "cloud-strong-night",
+  };
+
+  const hour = new Date().getHours();
+
+  if (hour >= 18 || hour <= 6) {
+    return fcstValue === null ? "sunny" : nightIcons[fcstValue];
+  }
+
+  return fcstValue === null ? "sunny" : icons[fcstValue];
 }
 
 function ODAMConvert(odam) {
@@ -117,4 +128,4 @@ function ODAMConvert(odam) {
   )}:${odam.substring(10, 12)}`;
 }
 
-export { LiveFcst, weatherIcon, weatherIconInit };
+export { LiveFcst, weatherIconInit };

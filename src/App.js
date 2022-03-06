@@ -5,7 +5,9 @@ import WeatherPage from "./components/Card/Large/weatherPage";
 import "./components/Navbar/nav.css";
 import "./components/Card/Large/weatherPage.css";
 import "./components/Card/Medium/weatherIcon.css";
+import "./components/Card/Medium/midFcst.css";
 import "./components/Card/Small/perHourFcstUnit.css";
+import "./components/Card/Small/midFcstUnit.css";
 
 function App() {
   return (

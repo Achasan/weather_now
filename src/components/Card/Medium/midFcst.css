@@ -1,0 +1,9 @@
+.weatherCard.large .mid-list {
+  display: flex;
+  padding: 10px;
+}
+
+.weatherCard.large .mid-list .unit-block {
+  width: 50%;
+  padding: 0 5px;
+}

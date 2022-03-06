@@ -1,19 +1,24 @@
 function PerHourFcstUnit(props) {
-  const isMidnight =
-    props.data.fcstTime.substring(4, 8) === "0000" ? true : false;
-
   const fcstTime = props.data.fcstTime;
 
+  const isMidnight = fcstTime.substring(4, 8) === "0000" ? true : false;
+
   return (
-    <div
-      className={isMidnight ? "vilage-tem-unit midnight" : "vilage-tem-unit"}
-    >
+    <div className={isMidnight ? "vilage-unit midnight" : "vilage-unit"}>
       <div className="time">
         <span className="tiny">{`${fcstTime.substring(4, 6)}:00`}</span>
       </div>
-      {props.data.pty === "없음"
-        ? weatherIconInit(props.data.sky)
-        : weatherIconInit(props.data.pty)}
+      <div
+        className={
+          "current-image small " +
+          weatherIconInit(
+            props.data.pty === "없음"
+              ? (props.data.sky, fcstTime.substring(4, 6))
+              : (props.data.pty, fcstTime.substring(4, 6))
+          )
+        }
+      ></div>
+
       <div className="vilage-tem">
         <strong>{props.data.tmp}</strong>
       </div>
@@ -31,23 +36,34 @@ function PerHourFcstUnit(props) {
   );
 }
 
-const weatherIconSmall = {
-  맑음: "current-image small sunny",
-  구름많음: "current-image small cloud",
-  흐림: "current-image small cloud-strong",
-  비: "current-image small rain",
-  "비/눈": "current-image small rain-snow",
-  눈: "current-image small snow",
-  소나기: "current-image small shower",
-  빗방울: "current-image small raindrop",
-  빗방울눈날림: "current-image small snow-little",
-  눈날림: "current-image small snow-little",
-};
+function weatherIconInit(fcstValue, fcstTime) {
+  const icons = {
+    맑음: "sunny",
+    구름많음: "cloud",
+    흐림: "cloud-strong",
+    비: "rain",
+    "비/눈": "rain-snow",
+    눈: "snow",
+    소나기: "shower",
+    빗방울: "raindrop",
+    빗방울눈날림: "snow-little",
+    눈날림: "snow-little",
+  };
 
-function weatherIconInit(fcstValue) {
-  const className = weatherIconSmall[fcstValue];
+  const nightIcons = {
+    맑음: "sunny-night",
+    구름많음: "cloud-night",
+    흐림: "cloud-strong-night",
+  };
 
-  return <div className={className}></div>;
+  console.log("fcstValue : " + fcstValue);
+  console.log("fcstTime : " + fcstTime);
+
+  if (fcstTime >= 18 || fcstTime <= 6) {
+    return fcstValue === null ? "sunny" : nightIcons[fcstValue];
+  }
+
+  return fcstValue === null ? "sunny" : icons[fcstValue];
 }
 
 export default PerHourFcstUnit;

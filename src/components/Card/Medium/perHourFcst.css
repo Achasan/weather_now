@@ -1,12 +1,9 @@
-.weatherCard.vilage .title {
-  text-align: left;
-  font-size: 1.2em;
-  padding-left: 20px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+.weatherCard.vilage {
+  display: block;
+  position: relative;
 }
 
-.weatherCard.vilage .tmp-list {
+.weatherCard.vilage .vilage-list {
   display: flex;
   height: 150px;
   margin: 0 20px;
@@ -14,6 +11,6 @@
   -ms-overflow-style: none;
 }
 
-.weatherCard.vilage .tmp-list::-webkit-scrollbar {
+.weatherCard.vilage .vilage-list::-webkit-scrollbar {
   display: none;
 }
