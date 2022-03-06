@@ -1,4 +1,4 @@
-function TemUnit(props) {
+function PerHourFcstUnit(props) {
   const isMidnight =
     props.data.fcstTime.substring(4, 8) === "0000" ? true : false;
 
@@ -50,4 +50,4 @@ function weatherIconInit(fcstValue) {
   return <div className={className}></div>;
 }
 
-export default TemUnit;
+export default PerHourFcstUnit;

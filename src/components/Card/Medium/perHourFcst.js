@@ -1,8 +1,8 @@
-import TemUnit from "../Small/vilageTemUnit.js";
-import "../Medium/vilageTem.css";
+import TemUnit from "../Small/perHourFcstUnit.js";
+import "../Medium/perHourFcst.css";
 import { useState, useEffect, useRef } from "react";
 
-function VilageTem(props) {
+function PerHourFcst(props) {
   const array = props.vilage;
 
   const scrollRef = useRef(null);
@@ -54,4 +54,4 @@ function VilageTem(props) {
   );
 }
 
-export default VilageTem;
+export default PerHourFcst;

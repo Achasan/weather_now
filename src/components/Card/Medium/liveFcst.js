@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import "../Large/weatherCard.css";
+import "../Large/weatherPage.css";
 
-function WeatherNow(props) {
+function LiveFcst(props) {
   useEffect(() => {
     props.live["pty"] === "없음"
       ? weatherIconInit(props.live["sky"])
@@ -117,4 +117,4 @@ function ODAMConvert(odam) {
   )}:${odam.substring(10, 12)}`;
 }
 
-export { WeatherNow, weatherIcon, weatherIconInit };
+export { LiveFcst, weatherIcon, weatherIconInit };

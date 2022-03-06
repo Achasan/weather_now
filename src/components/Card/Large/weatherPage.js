@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { WeatherNow } from "../Medium/weatherNow.js";
+import { LiveFcst } from "../Medium/liveFcst.js";
 import axios from "axios";
-import VilageTem from "../Medium/vilageTem.js";
+import PerHourFcst from "../Medium/perHourFcst.js";
+import MidFcst from "../Medium/midFcst.js";
 
 /*
   T1H: "기온",
@@ -35,7 +36,7 @@ const temp = {
   ODAM: "-",
 };
 
-function WeatherCard() {
+function WeatherPage() {
   let [live, setLive] = useState(temp);
   let [vilage, setVilage] = useState([]);
 
@@ -53,10 +54,11 @@ function WeatherCard() {
 
   return (
     <div className="weather-cards">
-      <WeatherNow live={live} />
-      <VilageTem vilage={vilage} />
+      <LiveFcst live={live} />
+      <PerHourFcst vilage={vilage} />
+      <MidFcst />
     </div>
   );
 }
 
-export default WeatherCard;
+export default WeatherPage;

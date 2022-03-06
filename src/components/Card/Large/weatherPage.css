@@ -11,6 +11,10 @@
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 6%);
 }
 
+.weatherCard.large {
+  height: 500px;
+}
+
 .weatherCard.vilage {
   display: block;
   position: relative;
