@@ -3,6 +3,8 @@ function PerHourFcstUnit(props) {
 
   const isMidnight = fcstTime.substring(4, 8) === "0000" ? true : false;
 
+  const parameter = props.data.pty === "없음" ? props.data.sky : props.data.pty;
+
   return (
     <div className={isMidnight ? "vilage-unit midnight" : "vilage-unit"}>
       <div className="time">
@@ -11,11 +13,7 @@ function PerHourFcstUnit(props) {
       <div
         className={
           "current-image small " +
-          weatherIconInit(
-            props.data.pty === "없음"
-              ? (props.data.sky, fcstTime.substring(4, 6))
-              : (props.data.pty, fcstTime.substring(4, 6))
-          )
+          weatherIconInit(parameter, fcstTime.substring(4, 6))
         }
       ></div>
 
@@ -55,9 +53,6 @@ function weatherIconInit(fcstValue, fcstTime) {
     구름많음: "cloud-night",
     흐림: "cloud-strong-night",
   };
-
-  console.log("fcstValue : " + fcstValue);
-  console.log("fcstTime : " + fcstTime);
 
   if (fcstTime >= 18 || fcstTime <= 6) {
     return fcstValue === null ? "sunny" : nightIcons[fcstValue];
