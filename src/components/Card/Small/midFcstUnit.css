@@ -1,0 +1,45 @@
+.unit-container .mid-unit {
+  display: flex;
+  align-items: center;
+  height: 55px;
+  padding-top: 5px;
+}
+
+.unit-container .date {
+  display: inline;
+  width: 50px;
+  font-size: 0.8em;
+}
+
+.unit-container .date .day {
+  font-size: 1.3em;
+}
+
+.unit-container .icon-block {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  padding: 0 7px;
+}
+
+.unit-container .icon-block span {
+  font-size: 0.8em;
+  color: #5691f9;
+}
+
+.unit-container .icon-block span:nth-child(3) {
+  padding-left: 7px;
+}
+
+.unit-container .tem-block {
+  padding-left: 3px;
+  font-size: 1.2em;
+}
+
+.unit-container .tem-block .tem-min {
+  color: #2a74f8;
+}
+
+.unit-container .tem-block .tem-max {
+  color: #dc0100;
+}

@@ -52,6 +52,13 @@ function weatherIconInit(fcstValue, fcstTime) {
     맑음: "sunny-night",
     구름많음: "cloud-night",
     흐림: "cloud-strong-night",
+    비: "rain",
+    "비/눈": "rain-snow",
+    눈: "snow",
+    소나기: "shower",
+    빗방울: "raindrop",
+    빗방울눈날림: "snow-little",
+    눈날림: "snow-little",
   };
 
   if (fcstTime >= 18 || fcstTime <= 6) {

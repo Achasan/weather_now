@@ -8,10 +8,18 @@ function MidFcst(props) {
       </div>
 
       <div className="mid-list">
-        <div className="unit-block">
+        <div className="unit-container">
+          <MidUnit />
+          <MidUnit />
+          <MidUnit />
+          <MidUnit />
           <MidUnit />
         </div>
-        <div className="unit-block">
+        <div className="unit-container">
+          <MidUnit />
+          <MidUnit />
+          <MidUnit />
+          <MidUnit />
           <MidUnit />
         </div>
       </div>
